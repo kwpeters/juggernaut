@@ -1,0 +1,6 @@
+# Mac OS X files that are not needed.
+*.DS_Store
+
+# Python compiled files
+*.pyo
+

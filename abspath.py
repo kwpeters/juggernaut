@@ -1,3 +1,5 @@
+#! /usr/bin/python -O
+
 import sys
 import os.path
 import getopt

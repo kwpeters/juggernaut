@@ -11,42 +11,46 @@ import os.path
 import editor
 import getopt
 
+class CaptLogLauncher(object):
 
-def GetDailyDelimiterLine():
-    r'''Returns the delimiter line that is used between days.'''
-    now = datetime.datetime.now()
-    dateStr = now.strftime('%Y-%m-%d (%A)')
-    delim = '* ' + dateStr
-    return delim
+    def __init__(self):
+        pass
 
-
-def NeedToAppendDailyTemplate(logFile):
-    r'''Determines whether the specified log file needs to have the
-    daily template appended to it.'''
-
-    delimLine = GetDailyDelimiterLine()
-
-    inputFile = open(logFile, 'r')
-    lines = inputFile.readlines()
-    lines = [line.strip() for line in lines]
-
-    if delimLine in lines:
-        print "File already has an entry for today's date."
-        return False
-    else:
-        print 'Did not find "%s" in the file.' % delimLine
-        return True
+    def __GetDailyDelimiterLine(self):
+        r'''Returns the delimiter line that is used between days.'''
+        now = datetime.datetime.now()
+        dateStr = now.strftime('%Y-%m-%d (%A)')
+        delim = '* ' + dateStr
+        return delim
 
 
-def AppendDailyTemplate(logFile):
-    r'''This function appends a daily template to the specified log
-    file.'''
+    def __NeedToAppendDailyTemplate(self, logFile):
+        r'''Determines whether the specified log file needs to have the
+        daily template appended to it.'''
 
-    output = open(logFile, 'a')
-    output.write('%s\n' % GetDailyDelimiterLine())
-    output.write('** Time\n')
+        delimLine = self.__GetDailyDelimiterLine()
 
-    timeTemplate = r'''    |---+-----+--------------------------------------------------|
+        inputFile = open(logFile, 'r')
+        lines = inputFile.readlines()
+        lines = [line.strip() for line in lines]
+
+        if delimLine in lines:
+            print "File already has an entry for today's date."
+            return False
+        else:
+            print 'Did not find "%s" in the file.' % delimLine
+            return True
+
+
+    def __AppendDailyTemplate(self, logFile):
+        r'''This function appends a daily template to the specified log
+        file.'''
+
+        output = open(logFile, 'a')
+        output.write('%s\n' % self.__GetDailyDelimiterLine())
+        output.write('** Time\n')
+
+        timeTemplate = r'''    |---+-----+--------------------------------------------------|
     |   |     | Mobility Foundation - Aguila      (SAP 2521.1)   |
     |---+-----+--------------------------------------------------|
     |   |     | AOP 11x (v22)                     (SAP 2520.1.1) |
@@ -68,10 +72,25 @@ def AppendDailyTemplate(logFile):
     |---+-----+--------------------------------------------------|
    #+TBLFM: $tot=vsum(@1..@-1)
 '''
-    output.write(timeTemplate)
+        output.write(timeTemplate)
 
-    output.write('** Journal\n')
-    output.close()
+        output.write('** Journal\n')
+        output.close()
+
+
+    def GetFilePath(self):
+        cloudHome = os.getenv('DROPBOXHOME')
+        absPath = os.path.abspath(os.path.join(cloudHome, 'data', 'captlog.org'))
+        return absPath
+
+
+    def Launch(self, reuseEditor):
+        absPath = self.GetFilePath()
+
+        if self.__NeedToAppendDailyTemplate(absPath):
+            AppendDailyTemplate(absPath)
+
+        editor.Open(absPath, reuseEditor)
 
 
 def GetUsage():
@@ -103,11 +122,5 @@ if __name__ == '__main__':
         elif option == '-r':
             reuseEditor = True
 
-
-    cloudHome = os.getenv('DROPBOXHOME')
-    logFile = os.path.abspath(os.path.join(cloudHome, 'data', 'captlog.org'))
-
-    if NeedToAppendDailyTemplate(logFile):
-        AppendDailyTemplate(logFile)
-
-    editor.Open(logFile, reuseEditor)
+    launcher = CaptLogLauncher()
+    launcher.Launch(reuseEditor)

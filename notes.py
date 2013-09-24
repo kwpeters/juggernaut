@@ -10,6 +10,21 @@ import getopt
 import editor
 
 
+class NotesLauncher(object):
+
+    def __init__(self):
+        pass
+
+    def GetFolder(self):
+        homeDir = os.getenv('CLOUDHOME')
+        notesDir = os.path.abspath(os.path.join(homeDir, 'data', 'notes'))
+        return notesDir
+
+    def Launch(self, reuseEditor):
+        notesDir = self.GetFolder()
+        editor.Open(notesDir, reuseEditor)
+
+
 def GetUsage():
     r'''This function returns a string with usage information for this
     script.'''
@@ -39,7 +54,4 @@ if __name__ == '__main__':
         elif option == '-r':
             reuseEditor = True
 
-    homeDir = os.getenv('CLOUDHOME')
-    cheatsheetFile = os.path.abspath(os.path.join(homeDir, 'data', 'cheat_sheet', 'cheatsheet.txt'))
-
-    editor.Open(cheatsheetFile, reuseEditor)
+    NotesLauncher().Launch(reuseEditor)
