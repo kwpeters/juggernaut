@@ -84,12 +84,16 @@ class CaptLogLauncher(object):
         return absPath
 
 
-    def Launch(self, reuseEditor):
+    def AppendToCaptlogIfNeeded(self):
         absPath = self.GetFilePath()
 
         if self.__NeedToAppendDailyTemplate(absPath):
-            AppendDailyTemplate(absPath)
+            self.__AppendDailyTemplate(absPath)
 
+
+    def Launch(self, reuseEditor):
+        self.AppendToCaptlogIfNeeded()
+        absPath = self.GetFilePath()
         editor.Open(absPath, reuseEditor)
 
 
