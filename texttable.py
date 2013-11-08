@@ -113,7 +113,7 @@ class TextTable(object):
 
             horizLineNeedsToFollow = (((self.__HorizLinesMode == HORIZ_LINES_FIRST) and (rowIndex == 0)) or
                 ((self.__HorizLinesMode == HORIZ_LINES_ALL) and (rowIndex < self.__NumRows - 1)))
-                    
+
             if (rowIndex == 0) and (self.__OuterLinesMode == OUTER_LINES_ALL):
                 outputLines.append(horizLine)
 
@@ -123,7 +123,7 @@ class TextTable(object):
 
             if (rowIndex == self.__NumRows - 1) and (self.__OuterLinesMode == OUTER_LINES_ALL):
                 outputLines.append(horizLine)
-        
+
         return outputLines
 
 
