@@ -22,4 +22,5 @@ def Open(fileToOpen, openInExistingEditor=True):
         else:
             executable = OPEN_IN_NEW_EDITOR_EXECUTABLE
 
-    os.system('%s "%s" &' % (executable, fileToOpen))
+    cmd = '%s %s &' % (executable, fileToOpen)
+    os.system(cmd)
