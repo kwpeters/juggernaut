@@ -3,4 +3,5 @@
 
 # Python compiled files
 *.pyo
+*.pyc
 

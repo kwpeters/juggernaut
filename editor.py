@@ -9,9 +9,11 @@ def Open(fileToOpen, openInExistingEditor=True):
     if platform.system() == 'Windows':
         # Running on Windows.
 
-        # When running in Windows, we don't care about the
-        # openInExistingEditor flag right now.
-        executable = 'gnuclientw.exe'
+        if openInExistingEditor:
+            #executable = 'gnuclientw.exe'
+            executable = 'emacsclient.exe'
+        else:
+            executable = 'runemacs'
 
     else:
         # Running on Mac
