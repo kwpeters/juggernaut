@@ -11,10 +11,14 @@ def GetUsage():
 Compiles a markdown file into HTML.
 
 Usage:
-    monitor.py --help
-    monitor.py [--cssFile <path-to-css-file>] md_file_1 md_file_2
+    md2html.py --help
+    md2html.py [--cssFile <path-to-css-file>] md_file_1 md_file_2
 
     where:
+
+    --help
+
+        Displays this help text.
 
     --cssFile <path-to-css-file>
 
