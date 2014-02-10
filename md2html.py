@@ -1,4 +1,4 @@
-#! /usr/bin/python -O
+#! python -O
 
 import sys
 import getopt

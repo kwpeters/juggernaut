@@ -1,4 +1,4 @@
-#! /usr/bin/python -O
+#! python -O
 import os.path
 import re
 import texttable

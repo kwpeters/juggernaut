@@ -1,4 +1,4 @@
-#! /usr/bin/python -O
+#! python -O
 import editor
 import todo
 import captlog

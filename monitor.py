@@ -1,4 +1,4 @@
-#! /usr/bin/python -O
+#! python -O
 '''
 This program monitors a set of folders and executes a command when anything changes.
 '''

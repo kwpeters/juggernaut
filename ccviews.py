@@ -1,4 +1,4 @@
-#! /usr/bin/python -O
+#! python -O
 
 import os
 import os.path

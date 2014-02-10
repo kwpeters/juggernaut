@@ -1,4 +1,4 @@
-#! /usr/bin/python -O
+#! python -O
 
 '''
 Prints the directory structure in ASCII form.

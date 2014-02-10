@@ -1,4 +1,4 @@
-#! /usr/bin/python -O
+#! python -O
 '''
 This program edits my personal cheat sheet.
 '''
