@@ -13,7 +13,7 @@ if __name__ == '__main__':
     # The folder where notes files are kept.
     viewsFile = os.path.join(homeDir,
                              'data',
-                             'programming',
+                             'notes',
                              'clearcase',
                              'clearcase_views_' + machineName + '.xml')
 
