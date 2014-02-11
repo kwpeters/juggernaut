@@ -1,4 +1,4 @@
-#! python -O
+#!/usr/bin/env python -O
 
 import TextEmail
 import sys

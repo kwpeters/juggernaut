@@ -1,4 +1,4 @@
-#! python -O
+#!/usr/bin/env python -O
 '''
 This program opens my personal cheat sheet.
 '''
