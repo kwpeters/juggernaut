@@ -1,4 +1,4 @@
-#!/usr/bin/env python -O
+#!/usr/bin/env python
 
 '''
 This program creates a daily log file when run.  The current time is
