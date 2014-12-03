@@ -1,6 +1,9 @@
 # Mac OS X files that are not needed.
 *.DS_Store
 
+# WebStorm IDE files
+/.idea/
+
 # Python compiled files
 *.pyo
 *.pyc
