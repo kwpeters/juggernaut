@@ -50,10 +50,12 @@ class CaptLogLauncher(object):
         output.write('%s\n' % self.__GetDailyDelimiterLine())
         output.write('** Time\n')
 
+
+        
         timeTemplate = r'''    |---+-----+---------------------------------------------------|
-    |   |     | Mobility Foundation Team 2.0         (SAP 3240.1) |
+    |   |     | Mobility Foundation Team 2.0       (SAP 3240.2.1) |
     |---+-----+---------------------------------------------------|
-    |   |     | AOP 11x (v22)                      (SAP 2520.1.1) |
+    |   |     | CVB Development Productivity       (SAP 3288.1.1) |
     |---+-----+---------------------------------------------------|
     |   |     | Training                               (SAP 1440) |
     |---+-----+---------------------------------------------------|
