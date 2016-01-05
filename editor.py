@@ -2,7 +2,7 @@ import os
 import platform
 
 OPEN_IN_EXISTING_EDITOR_EXECUTABLE = 'emacsclient -n'
-OPEN_IN_NEW_EDITOR_EXECUTABLE      = '/usr/local/Cellar/emacs/24.4/Emacs.app/Contents/MacOS/Emacs'
+OPEN_IN_NEW_EDITOR_EXECUTABLE      = '/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs'
 
 def Open(fileToOpen, openInExistingEditor=True):
 
