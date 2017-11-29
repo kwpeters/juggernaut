@@ -51,15 +51,14 @@ class CaptLogLauncher(object):
         output.write('** Time\n')
 
 
-        
         timeTemplate = r'''    |---+-----+---------------------------------------------------|
-    |   |     | App platform (Stanton)             (SAP 3686.2.1) |
+    |   |     | App platform (Stanton)               (SAP 4631.1) |
     |---+-----+---------------------------------------------------|
-    |   |     | Web libraries                      (SAP 3240.2.1) |
+    |   |     | App platform - overtime       (SAP CCC902 4631.1) |
     |---+-----+---------------------------------------------------|
-    |   |     | CVB Development Productivity       (SAP 3288.1.1) |
+    |   |     | Training - internal                    (SAP 1440) |
     |---+-----+---------------------------------------------------|
-    |   |     | Training                               (SAP 1440) |
+    |   |     | Training - external                    (SAP 1430) |
     |---+-----+---------------------------------------------------|
     |   |     | Misc Meeting                           (SAP 1210) |
     |---+-----+---------------------------------------------------|
@@ -77,8 +76,6 @@ class CaptLogLauncher(object):
    #+TBLFM: $tot=vsum(@1..@-1)
 '''
         output.write(timeTemplate)
-
-        output.write('** Journal\n')
         output.close()
 
 
