@@ -18,7 +18,7 @@ class ClipPalette(object):
 
 
     def GetFilePath(self):
-        cloudHome = os.getenv('DROPBOXHOME')
+        cloudHome = os.getenv('CLOUDHOME')
         absPath = os.path.abspath(os.path.join(cloudHome, 'data', 'clippalette.org'))
         return absPath
 

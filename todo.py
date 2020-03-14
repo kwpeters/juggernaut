@@ -12,7 +12,7 @@ class TodoLauncher(object):
         pass
 
     def GetFilePath(self):
-        cloudHome = os.getenv('DROPBOXHOME')
+        cloudHome = os.getenv('CLOUDHOME')
         todoFile = os.path.abspath(os.path.join(cloudHome, 'data', 'todo.org'))
         return todoFile
 
